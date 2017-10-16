@@ -99,6 +99,7 @@ vector<Token> Lexer::tokenize(string input)
 				Token newToken(INTEGER, inputWords[i]);
 				tokens.push_back(newToken);
 			}
+			//probably should change this later
 			catch (exception e) {
 
 			}
