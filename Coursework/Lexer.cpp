@@ -94,6 +94,7 @@ vector<Token> Lexer::tokenize(string input)
 			tokens.push_back(newToken);
 		}
 		else{
+			//remove this exceptions
 			try {
 				stoi(inputWords[i]);
 				Token newToken(INTEGER, inputWords[i]);
