@@ -7,7 +7,7 @@ int main() {
 	
 	
 	Lexer lexer;
-	lexer.tokenize("a quick 234 test of IF the tokenizer works + IF BETRAY ");
+	lexer.tokenize("a 241 quick 234 test of IF the tokenizer  31works + IF BETRAY ");
 
 	
 	return 0;

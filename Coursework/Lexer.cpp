@@ -94,19 +94,18 @@ vector<Token> Lexer::tokenize(string input)
 			tokens.push_back(newToken);
 		}
 		else{
-			//remove this exceptions
-			try {
-				stoi(inputWords[i]);
-				Token newToken(INTEGER, inputWords[i]);
-				tokens.push_back(newToken);
+			bool isInt = true;
+			for (int j = 0; j < inputWords[i].length(); ++j) {
+				if (!isdigit(inputWords[i].at(j))) {
+					isInt = false;
+				}
 			}
-			//probably should change this later
-			catch (exception e) {
-
+			if (isInt) {
+				Token newToken(INTEGER, inputWords[i]);
+				tokens.push_back(newToken);			
 			}
 		}
 	}
-
 
 	return tokens;
 }
