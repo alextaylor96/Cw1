@@ -5,8 +5,9 @@
 #include <string>
 
 using namespace std;
+
 //the type of the token
-enum Type {KEYWORD,OPERATOR,INTEGER,VARIABLE};
+enum Type {KEYWORD,OPERATOR,INTEGER,VARIABLE, LINENUMBER};
 
 class Token
 {

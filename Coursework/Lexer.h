@@ -10,8 +10,8 @@ public:
 	Lexer();
 	~Lexer();
 	//converts a string into a vector of tokens
-	 vector<Token> tokenize(string input);
-
+	 vector<Token> tokenizeLine(string input);
+	 //tokenise file
 private:
 
 };

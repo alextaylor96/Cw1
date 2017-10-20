@@ -11,7 +11,7 @@ Lexer::~Lexer()
 {
 }
 
-vector<Token> Lexer::tokenize(string input)
+vector<Token> Lexer::tokenizeLine(string input)
 {
 	vector<string> inputWords;
 	istringstream ss(input);
@@ -21,8 +21,13 @@ vector<Token> Lexer::tokenize(string input)
 
 	vector<Token> tokens;
 	for (int i = 0; i < inputWords.size(); ++i) {
+	//line number
+	    if (i == 0) {
+			Token newToken(LINENUMBER, inputWords[i]);
+			tokens.push_back(newToken);
+		}
 	//keywords
-		if (inputWords[i] == "IF") {
+		else if (inputWords[i] == "IF") {
 			Token newToken(KEYWORD, "IF");
 			tokens.push_back(newToken);
 		}
@@ -109,3 +114,4 @@ vector<Token> Lexer::tokenize(string input)
 
 	return tokens;
 }
+
