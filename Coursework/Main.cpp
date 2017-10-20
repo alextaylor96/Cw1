@@ -1,5 +1,11 @@
 #pragma once
 #include "Lexer.h"
+/*
+Tokenize file to lexer
+syntax checker on vector of vectors of file tokens
+interpreter on vector of vectors
+
+*/
 
 using namespace std;
 
