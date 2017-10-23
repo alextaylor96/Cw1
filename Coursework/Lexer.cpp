@@ -1,6 +1,8 @@
 #include "Lexer.h"
 #include <sstream>
 #include <iterator>
+#include <fstream>
+#include <iostream>
 
 Lexer::Lexer()
 {
@@ -11,7 +13,7 @@ Lexer::~Lexer()
 {
 }
 
-vector<Token> Lexer::tokenizeLine(string input)
+vector<Token> tokenizeLine(string input)
 {
 	vector<string> inputWords;
 	istringstream ss(input);
@@ -134,6 +136,22 @@ vector<Token> Lexer::tokenizeLine(string input)
 				tokens.push_back(newToken);			
 			}
 		}
+	}
+
+	return tokens;
+}
+
+vector<vector<Token>> Lexer::tokenizeFile(string filePath)
+{
+	vector<vector<Token>> tokens;
+	std::string line;
+	ifstream in(filePath);
+
+	if (!in) {
+		cout << "Cannot open input file.\n";
+	}
+	while (std::getline(in, line)) {
+		tokens.push_back(tokenizeLine(line));
 	}
 
 	return tokens;

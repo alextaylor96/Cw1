@@ -131,8 +131,8 @@ bool SyntaxChecker::testCheck()
 {
 	Lexer lexer;
 	vector<vector<Token>> testVec;
-	testVec.push_back(lexer.tokenizeLine("10 IF ALLOUTCOMES_W < ALLOUTCOMES_Z + 30 GOTO 20"));
-	testVec.push_back(lexer.tokenizeLine("20 IF LASTOUTCOME = X GOTO 50"));
+	
+	testVec = lexer.tokenizeFile("H:\\visual studio 2017\\Projects\\Coursework\\strat1\.txt");
 	SyntaxChecker checker;
 	bool result = checker.check(testVec);
 	if (result) {
