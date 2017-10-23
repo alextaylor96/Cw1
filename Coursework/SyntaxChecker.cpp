@@ -65,6 +65,9 @@ bool SyntaxChecker::check(vector<vector<Token>>& toCheck)
 
 				}
 
+				if ((endIt + 1)->getType() != INTEGER) {
+					return false;
+				}
 			
 
 				
