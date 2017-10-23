@@ -23,8 +23,16 @@ vector<Token> Lexer::tokenizeLine(string input)
 	for (int i = 0; i < inputWords.size(); ++i) {
 	//line number
 	    if (i == 0) {
-			Token newToken(LINENUMBER, inputWords[i]);
-			tokens.push_back(newToken);
+			bool isInt = true;
+			for (int j = 0; j < inputWords[i].length(); ++j) {
+				if (!isdigit(inputWords[i].at(j))) {
+					isInt = false;
+				}
+			}
+			if (isInt) {
+				Token newToken(LINENUMBER, inputWords[i]);
+				tokens.push_back(newToken);
+			}
 		}
 	//keywords
 		else if (inputWords[i] == "IF") {
@@ -96,6 +104,22 @@ vector<Token> Lexer::tokenizeLine(string input)
 		}
 		else if (inputWords[i] == "MYSCORE") {
 			Token newToken(VARIABLE, "MYSCORE");
+			tokens.push_back(newToken);
+		}
+		else if (inputWords[i] == "X") {
+			Token newToken(CHARVARIABLE, "X");
+			tokens.push_back(newToken);
+		}
+		else if (inputWords[i] == "Y") {
+			Token newToken(CHARVARIABLE, "Y");
+			tokens.push_back(newToken);
+		}
+		else if (inputWords[i] == "Z") {
+			Token newToken(CHARVARIABLE, "Z");
+			tokens.push_back(newToken);
+		}
+		else if (inputWords[i] == "W") {
+			Token newToken(CHARVARIABLE, "W");
 			tokens.push_back(newToken);
 		}
 		else{

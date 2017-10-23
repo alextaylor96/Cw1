@@ -7,7 +7,7 @@
 using namespace std;
 
 //the type of the token
-enum Type {KEYWORD,OPERATOR,INTEGER,VARIABLE, LINENUMBER};
+enum Type {KEYWORD,OPERATOR,INTEGER,VARIABLE, CHARVARIABLE ,LINENUMBER};
 
 class Token
 {
