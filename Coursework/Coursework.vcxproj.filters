@@ -30,6 +30,9 @@
     <ClInclude Include="Strategy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Prisoner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Token.cpp">
@@ -48,6 +51,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Strategy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Prisoner.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -13,16 +13,16 @@ Interpreter::~Interpreter()
 {
 }
 
-result Interpreter::interpretResult(vector<vector<Token>> strat)
+result Interpreter::interpretResult(Prisoner& prisoner)
 {
-	for (int i = 0; i < strat.size(); ++i) {
-		if (strat.at(i).at(1).getValue() == "BETRAY") {
+	for (int i = 0; i < prisoner.getStrategy().getTokens().size(); ++i) {
+		if (prisoner.getStrategy().getTokens().at(i).at(1).getValue() == "BETRAY") {
 			return	BETRAY;	
 		}
-		if (strat.at(i).at(1).getValue() == "SILENCE") {
+		if (prisoner.getStrategy().getTokens().at(i).at(1).getValue() == "SILENCE") {
 			return	SILENCE;
 		}
-		if (strat.at(i).at(1).getValue() == "RANDOM") {
+		if (prisoner.getStrategy().getTokens().at(i).at(1).getValue() == "RANDOM") {
 			srand(time(NULL));
 			int rdm = rand() % 2;
 			if (rdm = 1) {
@@ -33,7 +33,7 @@ result Interpreter::interpretResult(vector<vector<Token>> strat)
 			}
 		}
 		
-		if (strat.at(i).at(1).getValue() == "IF") {
+		if (prisoner.getStrategy().getTokens().at(i).at(1).getValue() == "IF") {
 
 
 
@@ -42,5 +42,5 @@ result Interpreter::interpretResult(vector<vector<Token>> strat)
 
 	}
 
-	return result();
+	return BETRAY;
 }

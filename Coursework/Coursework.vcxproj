@@ -113,6 +113,7 @@
   <ItemGroup>
     <ClInclude Include="Interpreter.h" />
     <ClInclude Include="Lexer.h" />
+    <ClInclude Include="Prisoner.h" />
     <ClInclude Include="Strategy.h" />
     <ClInclude Include="SyntaxChecker.h" />
     <ClInclude Include="Token.h" />
@@ -121,6 +122,7 @@
     <ClCompile Include="Interpreter.cpp" />
     <ClCompile Include="Lexer.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Prisoner.cpp" />
     <ClCompile Include="Strategy.cpp" />
     <ClCompile Include="SyntaxChecker.cpp" />
     <ClCompile Include="Token.cpp" />
