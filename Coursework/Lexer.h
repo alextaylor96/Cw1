@@ -12,6 +12,8 @@ public:
 	//converts a string into a vector of tokens
 	 vector<Token> tokenizeLine(string input);
 	 //tokenise file
+	 vector<vector<Token>> tokenizeFile(string filePath);
+
 private:
 
 };

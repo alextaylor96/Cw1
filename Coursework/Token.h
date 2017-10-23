@@ -15,6 +15,8 @@ public:
 	Token(Type type,string Value);
 	~Token();
 
+	Type getType();
+	string getValue();
 private:
 	
 	Type type;
