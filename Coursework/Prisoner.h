@@ -11,6 +11,10 @@ public:
 	Strategy& getStrategy();
 
 	int getVariableValue(Token t);
+	//resets the prisoner for use at the start of each game
+	void reset();
+
+	int getTornScore();
 
 	friend class Game;
 private:
@@ -23,5 +27,7 @@ private:
 	int iterations = 0;
 	//score represents the total time recived in sentancing so far(lower score is better)
 	int myScore= 0;
+	
+	int tornyScore = 0;;
 };
 

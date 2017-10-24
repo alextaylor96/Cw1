@@ -13,6 +13,8 @@ Game::~Game()
 
 void Game::playGame(Prisoner& prisoner1, Prisoner& prisoner2)
 {
+	prisoner1.reset();
+	prisoner2.reset();
 	for (int i = 0; i < iterations; ++i) {
 		result p1result = interpreter.interpretResult(prisoner1);
 		result p2result = interpreter.interpretResult(prisoner2);

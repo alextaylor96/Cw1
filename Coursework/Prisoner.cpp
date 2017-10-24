@@ -65,3 +65,20 @@ int Prisoner::getVariableValue(Token t) {
 	}
 
 }
+
+void Prisoner::reset()
+{
+	tornyScore += myScore;
+	lastOutcome = 0;
+	alloutcomes_w = 0;
+	alloutcomes_z = 0;
+	alloutcomes_y = 0;
+	alloutcomes_x = 0;
+	iterations = 0;
+	myScore = 0;
+}
+
+int Prisoner::getTornScore()
+{
+	return tornyScore;
+}
