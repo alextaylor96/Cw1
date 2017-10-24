@@ -94,6 +94,12 @@ bool SyntaxChecker::check(vector<vector<Token>>& toCheck)
 
 				std::vector<Token>::iterator endIt = std::find_if(toCheck.at(i).begin() + 1, toCheck.at(i).end(), isKeyword);
 
+
+				if ((endIt)->getValue() != "GOTO") {
+					cout << "if statement should be followed by goto line number.\n";
+					return false;
+				}
+
 				vector<Token> expresion(toCheck.at(i).begin() + tokenPos + 1, endIt);
 
 				for (int k = 0; k + 2 < expresion.size(); k += 2) {
@@ -115,6 +121,7 @@ bool SyntaxChecker::check(vector<vector<Token>>& toCheck)
 				}
 
 				if ((endIt + 1)->getType() != INTEGER) {
+					cout << "goto must Be followed by a line number.\n";
 					return false;
 				}
 				

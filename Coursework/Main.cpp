@@ -26,14 +26,39 @@ int main() {
 	Strategy s4("H:\\visual studio 2017\\Projects\\Coursework\\strat4.txt");
 	Prisoner p4(s4);
 
+	Strategy s5("H:\\visual studio 2017\\Projects\\Coursework\\strat5.txt");
+	Prisoner p5(s5);
+
+	Strategy s6("H:\\visual studio 2017\\Projects\\Coursework\\strat6.txt");
+	Prisoner p6(s6);
+
+	Strategy s7("H:\\visual studio 2017\\Projects\\Coursework\\strat7.txt");
+	Prisoner p7(s7);
+
+	Strategy s8("H:\\visual studio 2017\\Projects\\Coursework\\strat8.txt");
+	Prisoner p8(s8);
+
+	Strategy s9("H:\\visual studio 2017\\Projects\\Coursework\\strat9.txt");
+	Prisoner p9(s9);
+
+	Strategy s10("H:\\visual studio 2017\\Projects\\Coursework\\strat10.txt");
+	Prisoner p10(s10);
+
+
 	vector<Prisoner> prisoners;
 	prisoners.push_back(p1);
 	prisoners.push_back(p2);
 	prisoners.push_back(p3);
 	prisoners.push_back(p4);
+	prisoners.push_back(p5);
+	prisoners.push_back(p6);
+	prisoners.push_back(p7);
+	prisoners.push_back(p8);
+	prisoners.push_back(p9);
+	prisoners.push_back(p10);
 
 	
 	torn.playTournament(prisoners);
-
+	
 	return 0;
 }
