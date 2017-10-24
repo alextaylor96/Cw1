@@ -14,26 +14,24 @@ Interpreter::~Interpreter()
 {
 }
 
-bool solveComparison(string left, string operation, string right) {
-	if (operation == "=") {
-		if (left == right) {
-			return true;
-		}
-
+bool solveComparison(vector<Token> left, vector<Token> right, Token operation) {
+	if (operation.getValue() == "=") {
+		
 
 
 	}
-	if (operation == "<"){
+	if (operation.getValue() == "<"){
 
 
 	}
-	if (operation == ">") {
+	if (operation.getValue() == ">") {
 
 
 
 
 	}
 
+	return true;
 }
 
 bool isOp(Token& t) {
@@ -57,7 +55,7 @@ bool isGOTO(Token& t) {
 
 result Interpreter::interpretResult(Prisoner& prisoner)
 {
-	for (int i = 0; i < prisoner.getStrategy().getTokens().size(); ++i) {
+	for (int i = 0; i < (int)prisoner.getStrategy().getTokens().size(); ++i) {
 		if (prisoner.getStrategy().getTokens().at(i).at(1).getValue() == "BETRAY") {
 			return	BETRAY;	
 		}
@@ -65,7 +63,7 @@ result Interpreter::interpretResult(Prisoner& prisoner)
 			return	SILENCE;
 		}
 		if (prisoner.getStrategy().getTokens().at(i).at(1).getValue() == "RANDOM") {
-			srand(time(NULL));
+			srand((int)time(NULL));
 			int rdm = rand() % 2;
 			if (rdm = 1) {
 				return	SILENCE;
@@ -89,9 +87,7 @@ result Interpreter::interpretResult(Prisoner& prisoner)
 			vector<Token> right(opIt + 1,gotoIT);
 			Token op = *opIt;
 			
-			string s = prisoner.getStrategy().getTokens().at(i).at(2).getValue();
-									
-			
+			solveComparison(left, right, op);
 			
 		}
 
