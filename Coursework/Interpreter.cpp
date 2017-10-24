@@ -14,24 +14,47 @@ Interpreter::~Interpreter()
 {
 }
 
-bool solveComparison(vector<Token> left, vector<Token> right, Token operation) {
-	if (operation.getValue() == "=") {
-		
-
-
+//computes result of an equation suplyed as a vector of tokens
+int compute(vector<Token>& toCompute, Prisoner& prisoner) {
+	int totalValue = 0;
+	bool prevOpAdd = true;
+	
+	for (int i = 0; i < toCompute.size(); ++i) {
+		if (toCompute.at(i).getValue() == "+") {
+			prevOpAdd = true;
+		}
+		else if (toCompute.at(i).getValue() == "-") {
+			prevOpAdd = false;
+		}
+		else if (prevOpAdd) {
+			totalValue += prisoner.getVariableValue(toCompute.at(i));
+		}
+		else{
+			totalValue -= prisoner.getVariableValue(toCompute.at(i));
+		}
 	}
-	if (operation.getValue() == "<"){
 
+	return totalValue;
+}
 
+//solves comparison operators
+bool solveComparison(vector<Token> left, vector<Token> right, Token operation, Prisoner& prisoner) {
+	
+	int leftVal = compute(left,prisoner);
+	int rightVal = compute(right, prisoner);
+
+	if ((operation.getValue() == "=") && (leftVal = rightVal)) {
+		return true;
 	}
-	if (operation.getValue() == ">") {
-
-
-
-
+	if ((operation.getValue() == "<") && (leftVal < rightVal)){
+		return true;
 	}
-
-	return true;
+	if ((operation.getValue() == ">") && (leftVal > rightVal)) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 bool isOp(Token& t) {
@@ -55,14 +78,14 @@ bool isGOTO(Token& t) {
 
 result Interpreter::interpretResult(Prisoner& prisoner)
 {
-	for (int i = 0; i < (int)prisoner.getStrategy().getTokens().size(); ++i) {
-		if (prisoner.getStrategy().getTokens().at(i).at(1).getValue() == "BETRAY") {
+	for (int lineNumber = 0; lineNumber < (int)prisoner.getStrategy().getTokens().size(); ++lineNumber) {
+		if (prisoner.getStrategy().getTokens().at(lineNumber).at(1).getValue() == "BETRAY") {
 			return	BETRAY;	
 		}
-		if (prisoner.getStrategy().getTokens().at(i).at(1).getValue() == "SILENCE") {
+		if (prisoner.getStrategy().getTokens().at(lineNumber).at(1).getValue() == "SILENCE") {
 			return	SILENCE;
 		}
-		if (prisoner.getStrategy().getTokens().at(i).at(1).getValue() == "RANDOM") {
+		if (prisoner.getStrategy().getTokens().at(lineNumber).at(1).getValue() == "RANDOM") {
 			srand((int)time(NULL));
 			int rdm = rand() % 2;
 			if (rdm = 1) {
@@ -72,22 +95,24 @@ result Interpreter::interpretResult(Prisoner& prisoner)
 				return BETRAY;
 			}
 		}
-		//get help here
-		if (prisoner.getStrategy().getTokens().at(i).at(1).getValue() == "IF") {
+		
+		if (prisoner.getStrategy().getTokens().at(lineNumber).at(1).getValue() == "IF") {
 			
-			std::vector<Token>::iterator opIt = std::find_if(prisoner.getStrategy().getTokens().at(i).begin() ,
-				prisoner.getStrategy().getTokens().at(i).end(),
+			std::vector<Token>::iterator opIt = std::find_if(prisoner.getStrategy().getTokens().at(lineNumber).begin() ,
+				prisoner.getStrategy().getTokens().at(lineNumber).end(),
 				isOp);
 
-			std::vector<Token>::iterator gotoIT = std::find_if(prisoner.getStrategy().getTokens().at(i).begin(),
-				prisoner.getStrategy().getTokens().at(i).end(),
+			std::vector<Token>::iterator gotoIT = std::find_if(prisoner.getStrategy().getTokens().at(lineNumber).begin(),
+				prisoner.getStrategy().getTokens().at(lineNumber).end(),
 				isGOTO);
 
-			vector<Token> left(prisoner.getStrategy().getTokens().at(i).begin()+2, opIt);
+			vector<Token> left(prisoner.getStrategy().getTokens().at(lineNumber).begin()+2, opIt);
 			vector<Token> right(opIt + 1,gotoIT);
 			Token op = *opIt;
 			
-			solveComparison(left, right, op);
+			if (solveComparison(left, right, op, prisoner)) {
+
+			}
 			
 		}
 

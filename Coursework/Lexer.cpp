@@ -108,6 +108,7 @@ vector<Token> tokenizeLine(string input)
 			Token newToken(VARIABLE, "MYSCORE");
 			tokens.push_back(newToken);
 		}
+		//character variables and integers
 		else if (inputWords[i] == "X") {
 			Token newToken(CHARVARIABLE, "X");
 			tokens.push_back(newToken);

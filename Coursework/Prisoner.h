@@ -10,6 +10,9 @@ public:
 	void assignStrategy(Strategy& strategy);
 	Strategy& getStrategy();
 
+	int getVariableValue(Token t);
+
+
 private:
 	Strategy strat;
 	char lastOutcome = 0 ; 
