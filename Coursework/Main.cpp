@@ -3,6 +3,7 @@
 #include "SyntaxChecker.h"
 #include "Prisoner.h"
 #include "Interpreter.h"
+#include "Game.h"
 /*
 interpreter on vector of vectors
 */
@@ -11,6 +12,7 @@ using namespace std;
 
 int main() {
 	
+	Game game;
 	Interpreter interpreter;
 
 	Strategy s1("H:\\visual studio 2017\\Projects\\Coursework\\strat1.txt");
@@ -19,9 +21,7 @@ int main() {
 	Strategy s2("H:\\visual studio 2017\\Projects\\Coursework\\strat2.txt");
 	Prisoner john(s2);
 
-	result r = interpreter.interpretResult(dave);
-	result r2 = interpreter.interpretResult(john);
-	
+	game.playGame(dave, john);
 	
 	return 0;
 }

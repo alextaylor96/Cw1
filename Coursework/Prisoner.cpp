@@ -46,22 +46,22 @@ int Prisoner::getVariableValue(Token t) {
 		}
 	}
 	if (value == "ALLOUTCOMES_W") {
-		return lastOutcome;
+		return alloutcomes_w;
 	}
 	if (value == "ALLOUTCOMES_X") {
-		return lastOutcome;
+		return alloutcomes_x;
 	}
 	if (value == "ALLOUTCOMES_Y") {
-		return lastOutcome;
+		return alloutcomes_y;
 	}
 	if (value == "ALLOUTCOMES_Z") {
-		return lastOutcome;
+		return alloutcomes_z;
 	}
 	if (value == "ITERATIONS") {
-		return lastOutcome;
+		return iterations;
 	}
 	if (value == "MYSCORE") {
-		return lastOutcome;
+		return myScore;
 	}
 
 }

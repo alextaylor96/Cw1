@@ -12,7 +12,7 @@ public:
 
 	int getVariableValue(Token t);
 
-
+	friend class Game;
 private:
 	Strategy strat;
 	char lastOutcome = 0 ; 
