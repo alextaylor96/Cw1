@@ -2,7 +2,7 @@
 
 
 
-Prisoner::Prisoner(Strategy& strategy):strat(strategy)
+Prisoner::Prisoner(Strategy& strategy, int id):strat(strategy) , idNumber(id)
 {
 	
 }
@@ -81,4 +81,9 @@ void Prisoner::reset()
 int Prisoner::getTornScore()
 {
 	return tornyScore;
+}
+
+int Prisoner::getId()
+{
+	return idNumber;
 }

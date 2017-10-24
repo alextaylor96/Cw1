@@ -4,7 +4,7 @@
 class Prisoner
 {
 public:
-	Prisoner(Strategy& strategy);
+	Prisoner(Strategy& strategy, int id);
 	~Prisoner();
 
 	void assignStrategy(Strategy& strategy);
@@ -15,6 +15,13 @@ public:
 	void reset();
 
 	int getTornScore();
+
+	int getId();
+
+	//operator used for sorting
+	bool operator< (const Prisoner &other) const {
+		return tornyScore < other.tornyScore;
+	}
 
 	friend class Game;
 private:
@@ -28,6 +35,7 @@ private:
 	//score represents the total time recived in sentancing so far(lower score is better)
 	int myScore= 0;
 	
+	int idNumber;
 	int tornyScore = 0;;
 };
 

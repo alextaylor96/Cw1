@@ -5,44 +5,43 @@
 #include "Interpreter.h"
 #include "Game.h"
 #include "Tournament.h"
-
+#include <iostream>
 using namespace std;
 
 int main() {
 	
 	Game game;
 	Interpreter interpreter;
-	Tournament torn;
 
 	Strategy s1("H:\\visual studio 2017\\Projects\\Coursework\\strat1.txt");
-	Prisoner p1(s1);
+	Prisoner p1(s1,1);
 
 	Strategy s2("H:\\visual studio 2017\\Projects\\Coursework\\strat2.txt");
-	Prisoner p2(s2);
+	Prisoner p2(s2,2);
 
 	Strategy s3("H:\\visual studio 2017\\Projects\\Coursework\\strat3.txt");
-	Prisoner p3(s3);
+	Prisoner p3(s3,2);
 
 	Strategy s4("H:\\visual studio 2017\\Projects\\Coursework\\strat4.txt");
-	Prisoner p4(s4);
+	Prisoner p4(s4,4);
 
 	Strategy s5("H:\\visual studio 2017\\Projects\\Coursework\\strat5.txt");
-	Prisoner p5(s5);
+	Prisoner p5(s5,5);
 
 	Strategy s6("H:\\visual studio 2017\\Projects\\Coursework\\strat6.txt");
-	Prisoner p6(s6);
+	Prisoner p6(s6,6);
 
 	Strategy s7("H:\\visual studio 2017\\Projects\\Coursework\\strat7.txt");
-	Prisoner p7(s7);
+	Prisoner p7(s7,7);
 
 	Strategy s8("H:\\visual studio 2017\\Projects\\Coursework\\strat8.txt");
-	Prisoner p8(s8);
+	Prisoner p8(s8,8);
 
 	Strategy s9("H:\\visual studio 2017\\Projects\\Coursework\\strat9.txt");
-	Prisoner p9(s9);
+	Prisoner p9(s9,9);
 
 	Strategy s10("H:\\visual studio 2017\\Projects\\Coursework\\strat10.txt");
-	Prisoner p10(s10);
+	Prisoner p10(s10,10);
 
 
 	vector<Prisoner> prisoners;
@@ -57,8 +56,32 @@ int main() {
 	prisoners.push_back(p9);
 	prisoners.push_back(p10);
 
+	std::cout << "The Prisoners Dilemma.\n";
+	cout << "Select which coursework to veiw(1 or 2): \n";
+	int selected;
+	cin >> selected;
+	if (selected == 1) {
+		cout << "coursework 1 selected, starting tournament...\n";
+		Tournament torn(prisoners);
+		torn.playTournament();
+		cout << torn;
+
+		cout << "Would you like to see the full leader board? (Y / N) \n";
+		char choice;
+		cin >> choice;
+		if (choice == 'Y' || choice == 'y') {
+			torn.printLeaderBoard();
+		}
+		else if (choice == 'N' || choice == 'n') {
+			cout << "Not displaying full leaderboard. \n";
+		}
+
+		
+		cout << "Press any key to exit.\n";
+		cin >> choice;
+	}
 	
-	torn.playTournament(prisoners);
+	
 	
 	return 0;
 }
