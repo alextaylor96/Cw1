@@ -16,6 +16,23 @@ Interpreter::~Interpreter()
 
 //computes result of an equation suplyed as a vector of tokens
 int compute(vector<Token>& toCompute, Prisoner& prisoner) {
+	if (toCompute.at(0).getType() == CHARVARIABLE) {
+		if(toCompute.at(0).getValue() == "W") {
+			return 0;
+		}
+		if (toCompute.at(0).getValue() == "X") {
+			return 1;
+		}
+		if (toCompute.at(0).getValue() == "Y") {
+			return 2;
+		}
+		if (toCompute.at(0).getValue() == "Z") {
+			return 3;
+		}
+	}
+
+
+
 	int totalValue = 0;
 	bool prevOpAdd = true;
 	
@@ -43,7 +60,7 @@ bool solveComparison(vector<Token> left, vector<Token> right, Token operation, P
 	int leftVal = compute(left,prisoner);
 	int rightVal = compute(right, prisoner);
 
-	if ((operation.getValue() == "=") && (leftVal = rightVal)) {
+	if ((operation.getValue() == "=") && (leftVal == rightVal)) {
 		return true;
 	}
 	if ((operation.getValue() == "<") && (leftVal < rightVal)){
@@ -75,10 +92,23 @@ bool isGOTO(Token& t) {
 	}
 }
 
+//find the line that starts with the given line number
+int findLine(string lineNumber, vector<vector<Token>>& lines) {
+	int i = 0;
+	while(i < lines.size()) {
+		if (lines.at(i).at(0).getValue() == lineNumber) {
+			return i;
+		}
+		else {
+			++i;
+		}
+	}
+}
 
 result Interpreter::interpretResult(Prisoner& prisoner)
 {
-	for (int lineNumber = 0; lineNumber < (int)prisoner.getStrategy().getTokens().size(); ++lineNumber) {
+	int lineNumber = 0;
+	while(lineNumber < (int)prisoner.getStrategy().getTokens().size()) {
 		if (prisoner.getStrategy().getTokens().at(lineNumber).at(1).getValue() == "BETRAY") {
 			return	BETRAY;	
 		}
@@ -111,12 +141,17 @@ result Interpreter::interpretResult(Prisoner& prisoner)
 			Token op = *opIt;
 			
 			if (solveComparison(left, right, op, prisoner)) {
-
+				Token goTo = *(gotoIT + 1);
+				
+				lineNumber = findLine(goTo.getValue(), prisoner.getStrategy().getTokens());
+			}
+			else {
+				++lineNumber;
 			}
 			
 		}
 
 	}
 
-	return BETRAY;
+
 }

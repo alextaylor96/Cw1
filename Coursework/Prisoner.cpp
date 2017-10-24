@@ -41,6 +41,9 @@ int Prisoner::getVariableValue(Token t) {
 		if (lastOutcome == 'Z') {
 			return 3;
 		}
+		else {
+			return -1;
+		}
 	}
 	if (value == "ALLOUTCOMES_W") {
 		return lastOutcome;
