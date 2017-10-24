@@ -18,7 +18,7 @@ int main() {
 	Strategy s1("H:\\visual studio 2017\\Projects\\Coursework\\strat1.txt");
 	Prisoner dave(s1);
 
-	Strategy s2("H:\\visual studio 2017\\Projects\\Coursework\\strat2.txt");
+	Strategy s2("H:\\visual studio 2017\\Projects\\Coursework\\strat3.txt");
 	Prisoner john(s2);
 
 	game.playGame(dave, john);

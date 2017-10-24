@@ -21,6 +21,7 @@ private:
 	int alloutcomes_y = 0;
 	int alloutcomes_x = 0;
 	int iterations = 0;
+	//score represents the total time recived in sentancing so far(lower score is better)
 	int myScore= 0;
 };
 
