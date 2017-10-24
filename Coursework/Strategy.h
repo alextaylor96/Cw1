@@ -8,7 +8,7 @@ public:
 	Strategy(std::string filePath);
 	~Strategy();
 
-	vector <vector<Token>> getTokens();
+	vector <vector<Token>>& getTokens();
 
 private:
 	vector <vector<Token>> strat;

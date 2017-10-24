@@ -145,6 +145,8 @@ vector<vector<Token>> Lexer::tokenizeFile(string filePath)
 {
 	vector<vector<Token>> tokens;
 	std::string line;
+	
+
 	ifstream in(filePath);
 
 	if (!in) {

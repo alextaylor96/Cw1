@@ -17,7 +17,8 @@ void Prisoner::assignStrategy(Strategy& strategy)
 	strat = strategy;
 }
 
-Strategy Prisoner::getStrategy()
+Strategy& Prisoner::getStrategy()
 {
 	return strat;
 }
+

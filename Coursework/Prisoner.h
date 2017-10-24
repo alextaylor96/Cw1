@@ -8,7 +8,7 @@ public:
 	~Prisoner();
 
 	void assignStrategy(Strategy& strategy);
-	Strategy getStrategy();
+	Strategy& getStrategy();
 
 private:
 	Strategy strat;

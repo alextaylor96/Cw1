@@ -21,7 +21,7 @@ Strategy::~Strategy()
 {
 }
 
-vector<vector<Token>> Strategy::getTokens()
+vector<vector<Token>>& Strategy::getTokens()
 {
 	return strat;
 }

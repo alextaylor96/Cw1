@@ -11,7 +11,6 @@ public:
 	//check the syntax of the tokens to make sure valid
 	bool check(vector<vector<Token>>& toCheck);
 
-	bool testCheck();
 
 };
 

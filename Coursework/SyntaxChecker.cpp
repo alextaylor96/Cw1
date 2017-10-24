@@ -126,22 +126,22 @@ bool SyntaxChecker::check(vector<vector<Token>>& toCheck)
 		}
 	}
 }
-
-bool SyntaxChecker::testCheck()
-{
-	Lexer lexer;
-	vector<vector<Token>> testVec;
-	
-	testVec = lexer.tokenizeFile("H:\\visual studio 2017\\Projects\\Coursework\\strat1\.txt");
-	SyntaxChecker checker;
-	bool result = checker.check(testVec);
-	if (result) {
-		cout << "check passed";
-	}
-	else {
-		cout << "check failed";
-	}
-	
-
-	return false;
-}
+//
+//bool SyntaxChecker::testCheck()
+//{
+//	Lexer lexer;
+//	vector<vector<Token>> testVec;
+//	
+//	testVec = lexer.tokenizeFile("H:\\visual studio 2017\\Projects\\Coursework\\strat1\.txt");
+//	SyntaxChecker checker;
+//	bool result = checker.check(testVec);
+//	if (result) {
+//		cout << "check passed";
+//	}
+//	else {
+//		cout << "check failed";
+//	}
+//	
+//
+//	return false;
+//}
