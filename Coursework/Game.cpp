@@ -73,6 +73,17 @@ bool checkTotalAgreement(vector<result> & results) {
 	return true;
 }
 
+int countBetrays(vector<result>& results) {
+	int numBetrays = 0;
+	for (int i = 0; i < (int)results.size(); ++i) {
+		if (results.at(i) == BETRAY) {
+			++numBetrays;
+		}
+	}
+	return numBetrays;
+}
+
+
 void Game::playGame(Gang & gang1, Gang & gang2)
 {
 	gang1.reset();
@@ -115,6 +126,37 @@ void Game::playGame(Gang & gang1, Gang & gang2)
 
 			gang1.updateLastOutcome('Y');
 			gang2.updateLastOutcome('X');
+		}
+
+		else {
+			int g1Betrays = countBetrays(gang1Results);
+			int g2Betrays = countBetrays(gang2Results);
+
+			if (g1Betrays == g2Betrays) {
+				gang1.updateScore(2);
+				gang2.updateScore(2);
+
+				gang1.updateLastOutcome('C');
+				gang2.updateLastOutcome('C');
+			}
+
+			if (g1Betrays > g2Betrays) {
+				gang1.updateScore(2.5);
+				gang2.updateScore(3);
+
+				gang1.updateLastOutcome('A');
+				gang2.updateLastOutcome('B');
+			}
+
+			if (g1Betrays < g2Betrays) {
+				gang1.updateScore(3);
+				gang2.updateScore(2.5);
+
+				gang1.updateLastOutcome('B');
+				gang2.updateLastOutcome('A');
+			}
+
+
 		}
 
 	}

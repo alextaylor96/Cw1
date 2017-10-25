@@ -40,9 +40,29 @@ void Gang::updateLastOutcome(char loc)
 	if (loc == 'Z') {
 		for (int i = 0; i < (int)members.size(); ++i) {
 			members.at(i).lastOutcome = loc;
-			++members.at(i).alloutcomes_x;
+			++members.at(i).alloutcomes_z;
 		}
 	}
+	if (loc == 'A') {
+		for (int i = 0; i <(int)members.size(); ++i) {
+			members.at(i).lastOutcome = loc;
+			++members.at(i).alloutcomes_a;
+		}
+	}
+	if (loc == 'B') {
+		for (int i = 0; i < (int)members.size(); ++i) {
+			members.at(i).lastOutcome = loc;
+			++members.at(i).alloutcomes_b;
+		}
+	}
+
+	if (loc == 'C') {
+		for (int i = 0; i < (int)members.size(); ++i) {
+			members.at(i).lastOutcome = loc;
+			++members.at(i).alloutcomes_c;
+		}
+	}
+
 
 
 
@@ -55,7 +75,7 @@ void Gang::updateIterations()
 	}
 }
 
-void Gang::updateScore(int toAdd)
+void Gang::updateScore(double toAdd)
 {
 	for (int i = 0; i <(int)members.size(); ++i) {
 		members.at(i).tornyScore += toAdd;

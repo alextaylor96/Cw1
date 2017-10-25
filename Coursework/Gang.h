@@ -13,7 +13,7 @@ public:
 	//update number of iterations of every member
 	void updateIterations();
 	//update score of every member
-	void updateScore(int toAdd);
+	void updateScore(double toAdd);
 	//reset every member
 	void reset();
 

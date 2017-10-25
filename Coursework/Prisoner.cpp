@@ -22,7 +22,7 @@ Strategy& Prisoner::getStrategy()
 	return strat;
 }
 
-int Prisoner::getVariableValue(Token t) {
+double Prisoner::getVariableValue(Token t) {
 	if (t.getType() == INTEGER) {
 		return stoi(t.getValue());
 	}
@@ -64,6 +64,8 @@ int Prisoner::getVariableValue(Token t) {
 		return myScore;
 	}
 
+	return -1;
+
 }
 
 void Prisoner::reset()
@@ -78,7 +80,7 @@ void Prisoner::reset()
 	myScore = 0;
 }
 
-int Prisoner::getTornScore()
+double Prisoner::getTornScore()
 {
 	return tornyScore;
 }

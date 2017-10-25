@@ -16,14 +16,14 @@ Prisoner Tournament::playTournament()
 {
 	Game game;
 	
-	for (int i = 0; i < contestants.size(); ++i) {
-		for (int j = i + 1 ; j < contestants.size(); ++j) {
+	for (int i = 0; i < (int)contestants.size(); ++i) {
+		for (int j = i + 1 ; j <(int) contestants.size(); ++j) {
 			game.playGame(contestants.at(i), contestants.at(j));
 		}
 	}
 	int bestIndex;
 	int bestScore = 10000;
-	for (int i = 0; i < contestants.size(); ++i) {
+	for (int i = 0; i < (int)contestants.size(); ++i) {
 		if (contestants.at(i).getTornScore() < bestScore) {
 			bestIndex = i;
 			bestScore = contestants.at(i).getTornScore();
@@ -36,15 +36,14 @@ Prisoner Tournament::playTournament()
 void Tournament::printLeaderBoard()
 {
 	vector<Prisoner> temp;
-	int currentBestIndex;
-	int currentBestScore = 10000;
-	for (int i = 0; i < contestants.size(); ++i) {
+	
+	for (int i = 0; i <(int)contestants.size(); ++i) {
 		temp.push_back(contestants.at(i));
 	}
 
 	sort(temp.begin(), temp.end());
 
-	for (int i = 0; i < temp.size(); ++i) {
+	for (int i = 0; i < (int)temp.size(); ++i) {
 		std::cout <<"In position " << i + 1 << " is prisoner number " << temp.at(i).getId() << " with a score of " << temp.at(i).getTornScore() << "\n";
 	}
 }
