@@ -95,6 +95,28 @@ void Game::playGame(Gang & gang1, Gang & gang2)
 			gang1.updateLastOutcome('W');
 			gang2.updateLastOutcome('W');
 		}
+		else if (gang1Agree && gang2Agree && (gang1Results.at(0) == BETRAY) && (gang2Results.at(0) == BETRAY)) {
+			gang1.updateScore(4);
+			gang2.updateScore(4);
+
+			gang1.updateLastOutcome('Z');
+			gang2.updateLastOutcome('Z');
+		}
+		else if (gang1Agree && gang2Agree && (gang1Results.at(0) == SILENCE) && (gang2Results.at(0) == BETRAY)) {
+			gang1.updateScore(5);
+			gang2.updateScore(0);
+
+			gang1.updateLastOutcome('X');
+			gang2.updateLastOutcome('Y');
+		}
+		else if (gang1Agree && gang2Agree && (gang1Results.at(0) == BETRAY) && (gang2Results.at(0) == SILENCE)) {
+			gang1.updateScore(0);
+			gang2.updateScore(5);
+
+			gang1.updateLastOutcome('Y');
+			gang2.updateLastOutcome('X');
+		}
 
 	}
+
 }
