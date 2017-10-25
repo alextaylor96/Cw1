@@ -22,7 +22,7 @@ public:
 	bool operator< (const Gang &other) const {
 		return this->getTotalScore() < other.getTotalScore();
 	}
-
+	//returns id of gang
 	int getId();
 
 private:
