@@ -4,7 +4,7 @@
 class Gang
 {
 public:
-	Gang(vector<GangMember>& members);
+	Gang(vector<GangMember>& members, int id);
 	~Gang();
 
 	vector<GangMember>& getMembers();
@@ -16,9 +16,14 @@ public:
 	void updateScore(double toAdd);
 	//reset every member
 	void reset();
+	//gets the total score of the gang
+	double getTotalScore();
+
+	int getId();
 
 private:
 	vector<GangMember>& members;
+	int gangId;
 
 };
 

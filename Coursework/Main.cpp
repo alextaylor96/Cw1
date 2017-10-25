@@ -5,6 +5,7 @@
 #include "Interpreter.h"
 #include "Game.h"
 #include "Tournament.h"
+#include "GangTournament.h"
 #include <iostream>
 using namespace std;
 
@@ -80,10 +81,32 @@ int main() {
 	gang2Members.push_back(g8);
 	gang2Members.push_back(g9);
 	gang2Members.push_back(g10);
+
+	vector<GangMember> gang3Members;
+	gang3Members.push_back(g2);
+	gang3Members.push_back(g2);
+	gang3Members.push_back(g2);
+	gang3Members.push_back(g2);
+	gang3Members.push_back(g2);
+
+	vector<GangMember> gang4Members;
+	gang4Members.push_back(g10);
+	gang4Members.push_back(g2);
+	gang4Members.push_back(g2);
+	gang4Members.push_back(g9);
+	gang4Members.push_back(g10);
 	
 	
-	Gang gang1(gang1Members);
-	Gang gang2(gang2Members);
+	Gang gang1(gang1Members,1);
+	Gang gang2(gang2Members,2);
+	Gang gang3(gang3Members, 3);
+	Gang gang4(gang4Members, 4);
+
+	vector<Gang> gangs;
+	gangs.push_back(gang1);
+	gangs.push_back(gang2);
+	gangs.push_back(gang3);
+	gangs.push_back(gang4);
 
 
 
@@ -113,8 +136,9 @@ int main() {
 	}
 	if (selected == 2) {
 		cout << "coursework 2 selected. \n";
-		game.playGame(gang1, gang2);
-
+		GangTournament gt(gangs);
+		gt.playTournament();
+		cout << gt;
 	}
 	
 	

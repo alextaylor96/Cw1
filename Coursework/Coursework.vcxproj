@@ -114,6 +114,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="Gang.h" />
     <ClInclude Include="GangMember.h" />
+    <ClInclude Include="GangTournament.h" />
     <ClInclude Include="Interpreter.h" />
     <ClInclude Include="Lexer.h" />
     <ClInclude Include="Prisoner.h" />
@@ -126,6 +127,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Gang.cpp" />
     <ClCompile Include="GangMember.cpp" />
+    <ClCompile Include="GangTournament.cpp" />
     <ClCompile Include="Interpreter.cpp" />
     <ClCompile Include="Lexer.cpp" />
     <ClCompile Include="Main.cpp" />

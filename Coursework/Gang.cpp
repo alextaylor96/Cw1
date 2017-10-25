@@ -2,7 +2,7 @@
 
 
 
-Gang::Gang(vector<GangMember>& members): members(members)
+Gang::Gang(vector<GangMember>& members, int id): members(members), gangId(id)
 {
 }
 
@@ -86,4 +86,18 @@ void Gang::reset() {
 	for (int i = 0; i < (int)members.size(); ++i) {
 		members.at(i).reset();
 	}
+}
+
+double Gang::getTotalScore()
+{
+	double score = 0;
+	for (int i = 0; i < (int)members.size(); ++i) {
+		score += members.at(i).tornyScore;
+	}
+	return score;
+}
+
+int Gang::getId()
+{
+	return gangId;
 }
