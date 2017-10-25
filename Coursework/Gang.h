@@ -17,12 +17,16 @@ public:
 	//reset every member
 	void reset();
 	//gets the total score of the gang
-	double getTotalScore();
+	double getTotalScore() const;
+	//overloaded op used in sorting
+	bool operator< (const Gang &other) const {
+		return this->getTotalScore() < other.getTotalScore();
+	}
 
 	int getId();
 
 private:
-	vector<GangMember>& members;
+	vector<GangMember> members;
 	int gangId;
 
 };
