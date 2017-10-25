@@ -74,14 +74,14 @@ bool solveComparison(vector<Token> left, vector<Token> right, Token operation, P
 	}
 }
 
-bool isOp(Token& t) {
-	if (t.getValue() == "=" || t.getValue() == "<" || t.getValue() == ">") {
-		return true;
-	}
-	else {
-		return false;
-	}
-}
+//bool isOp(Token& t) {
+//	if (t.getValue() == "=" || t.getValue() == "<" || t.getValue() == ">") {
+//		return true;
+//	}
+//	else {
+//		return false;
+//	}
+//}
 
 bool isGOTO(Token& t) {
 	if (t.getValue() == "GOTO") {
@@ -127,10 +127,17 @@ result Interpreter::interpretResult(Prisoner& prisoner)
 		}
 		
 		if (prisoner.getStrategy().getTokens().at(lineNumber).at(1).getValue() == "IF") {
-			
+			//lambda function to find the iterator whihc points to an operator
 			std::vector<Token>::iterator opIt = std::find_if(prisoner.getStrategy().getTokens().at(lineNumber).begin() ,
 				prisoner.getStrategy().getTokens().at(lineNumber).end(),
-				isOp);
+				[](Token& t) {
+					if (t.getValue() == "=" || t.getValue() == "<" || t.getValue() == ">") {
+						return true;
+					}
+					else {
+						return false;
+					}
+				});
 
 			std::vector<Token>::iterator gotoIT = std::find_if(prisoner.getStrategy().getTokens().at(lineNumber).begin(),
 				prisoner.getStrategy().getTokens().at(lineNumber).end(),
