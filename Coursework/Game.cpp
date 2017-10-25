@@ -61,3 +61,14 @@ void Game::playGame(Prisoner& prisoner1, Prisoner& prisoner2)
 	}
 
 }
+
+void Game::playGame(Gang & gang1, Gang & gang2)
+{
+	gang1.reset();
+	gang2.reset();
+
+	for (int i = 0; i < iterations; ++i) {
+		vector<result> gang1Results = interpreter.interpretResult(gang1);
+		vector<result> gang2Results = interpreter.interpretResult(gang2);
+	}
+}

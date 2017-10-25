@@ -29,6 +29,15 @@ int compute(vector<Token>& toCompute, Prisoner& prisoner) {
 		if (toCompute.at(0).getValue() == "Z") {
 			return 3;
 		}
+		if (toCompute.at(0).getValue() == "A") {
+			return 4;
+		}
+		if (toCompute.at(0).getValue() == "B") {
+			return 5;
+		}
+		if (toCompute.at(0).getValue() == "C") {
+			return 6;
+		}
 	}
 
 
@@ -151,4 +160,78 @@ result Interpreter::interpretResult(Prisoner& prisoner)
 	}
 
 
+}
+//
+//result interpretResult(GangMember& prisoner)
+//{
+//	int lineNumber = 0;
+//	while (lineNumber < (int)prisoner.getStrategy().getTokens().size()) {
+//		if (prisoner.getStrategy().getTokens().at(lineNumber).at(1).getValue() == "BETRAY") {
+//			return	BETRAY;
+//		}
+//		if (prisoner.getStrategy().getTokens().at(lineNumber).at(1).getValue() == "SILENCE") {
+//			return	SILENCE;
+//		}
+//		if (prisoner.getStrategy().getTokens().at(lineNumber).at(1).getValue() == "RANDOM") {
+//			srand((int)time(NULL));
+//			int rdm = rand() % 2;
+//			if (rdm = 1) {
+//				return	SILENCE;
+//			}
+//			else {
+//				return BETRAY;
+//			}
+//		}
+//
+//		if (prisoner.getStrategy().getTokens().at(lineNumber).at(1).getValue() == "IF") {
+//			//lambda function to find the iterator whihc points to an operator
+//			std::vector<Token>::iterator opIt = std::find_if(prisoner.getStrategy().getTokens().at(lineNumber).begin(),
+//				prisoner.getStrategy().getTokens().at(lineNumber).end(),
+//				[](Token& t) {
+//				if (t.getValue() == "=" || t.getValue() == "<" || t.getValue() == ">") {
+//					return true;
+//				}
+//				else {
+//					return false;
+//				}
+//			});
+//
+//			std::vector<Token>::iterator gotoIT = std::find_if(prisoner.getStrategy().getTokens().at(lineNumber).begin(),
+//				prisoner.getStrategy().getTokens().at(lineNumber).end(),
+//				[](Token& t) {
+//				if (t.getValue() == "GOTO") {
+//					return true;
+//				}
+//				else {
+//					return false;
+//				}
+//			});
+//
+//			vector<Token> left(prisoner.getStrategy().getTokens().at(lineNumber).begin() + 2, opIt);
+//			vector<Token> right(opIt + 1, gotoIT);
+//			Token op = *opIt;
+//
+//			if (solveComparison(left, right, op, prisoner)) {
+//				Token goTo = *(gotoIT + 1);
+//
+//				lineNumber = findLine(goTo.getValue(), prisoner.getStrategy().getTokens());
+//			}
+//			else {
+//				++lineNumber;
+//			}
+//
+//		}
+//
+//	}
+//
+//
+//}
+
+vector<result> Interpreter::interpretResult(Gang & gang)
+{
+	vector<result> results;
+	for (int i = 0; i < gang.getMembers().size(); ++i) {
+		results.push_back(interpretResult(gang.getMembers().at(i)));
+	}
+	return results;
 }

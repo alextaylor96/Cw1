@@ -26,6 +26,7 @@ public:
 	friend ostream& operator<<(ostream& ostr, const Prisoner& prisoner);
 
 	friend class Game;
+	
 
 protected:
 	Strategy strat;

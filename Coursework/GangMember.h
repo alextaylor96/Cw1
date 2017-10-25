@@ -8,6 +8,8 @@ public:
 
 	int getVariableValue(Token t);
 
+	friend class Gang;
+
 private:
 	int alloutcomes_a;
 	int alloutcomes_b;

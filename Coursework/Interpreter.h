@@ -1,6 +1,7 @@
 #pragma once
 #include "Lexer.h"
 #include "Prisoner.h"
+#include "Gang.h"
 
 enum result {BETRAY, SILENCE};
 
@@ -12,6 +13,6 @@ public:
 
 	//returns the result of the stratergy 
 	result interpretResult(Prisoner& prisoner);
-
+	vector<result> interpretResult(Gang& gang);
 };
 
