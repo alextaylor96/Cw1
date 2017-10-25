@@ -17,3 +17,9 @@ string Token::getValue()
 {
 	return value;
 }
+
+ostream & operator<<(ostream & ostr, const Token & token)
+{
+	ostr << token.value << " ";
+	return ostr;
+}

@@ -53,6 +53,7 @@ void Tournament::printLeaderBoard()
 ostream & operator<<(ostream & ostr, const Tournament& torn)
 {
 	ostr << "The winner of the tournament was the prisoner number: " << torn.winner->getId() << " with a score of " << torn.winner->getTornScore() << ".\n";
+	ostr << "It used the strategy: \n" << (torn.winner->getStrategy());
 	return ostr;
 }
 

@@ -10,6 +10,8 @@ public:
 
 	vector <vector<Token>>& getTokens();
 
+	friend ostream& operator<<(ostream& ostr, const Strategy& strategy);
+
 private:
 	vector <vector<Token>> strat;
 };

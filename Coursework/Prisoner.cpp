@@ -87,3 +87,11 @@ int Prisoner::getId()
 {
 	return idNumber;
 }
+
+ostream & operator<<(ostream & ostr, const Prisoner & prisoner)
+{
+	ostr << "Prisoner number: " << prisoner.idNumber << " with a score of " << prisoner.tornyScore << ".\n";
+	ostr << "Strategy used: \n";
+	ostr << prisoner.strat;
+	return ostr;
+}

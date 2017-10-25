@@ -17,6 +17,9 @@ public:
 
 	Type getType();
 	string getValue();
+
+	friend ostream& operator<<(ostream& ostr, const Token& token);
+
 private:
 	
 	Type type;

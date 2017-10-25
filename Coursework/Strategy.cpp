@@ -25,3 +25,14 @@ vector<vector<Token>>& Strategy::getTokens()
 {
 	return strat;
 }
+
+ostream & operator<<(ostream & ostr, const Strategy & strategy)
+{
+	for (int i = 0; i < strategy.strat.size(); ++i) {
+		for (int j = 0; j < strategy.strat.at(i).size(); ++j) {
+			ostr << strategy.strat.at(i).at(j);
+		}
+		cout << endl;
+	}
+	return ostr;
+}

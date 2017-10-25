@@ -100,6 +100,20 @@ vector<Token> tokenizeLine(string input)
 			Token newToken(VARIABLE, "ALLOUTCOMES_Z");
 			tokens.push_back(newToken);
 		}
+
+		else if (inputWords[i] == "ALLOUTCOMES_A") {
+			Token newToken(VARIABLE, "ALLOUTCOMES_A");
+			tokens.push_back(newToken);
+		}
+		else if (inputWords[i] == "ALLOUTCOMES_B") {
+			Token newToken(VARIABLE, "ALLOUTCOMES_B");
+			tokens.push_back(newToken);
+		}
+		else if (inputWords[i] == "ALLOUTCOMES_C") {
+			Token newToken(VARIABLE, "ALLOUTCOMES_C");
+			tokens.push_back(newToken);
+		}
+
 		else if (inputWords[i] == "ITERATIONS") {
 			Token newToken(VARIABLE, "ITERATIONS");
 			tokens.push_back(newToken);
@@ -125,6 +139,20 @@ vector<Token> tokenizeLine(string input)
 			Token newToken(CHARVARIABLE, "W");
 			tokens.push_back(newToken);
 		}
+
+		else if (inputWords[i] == "A") {
+			Token newToken(CHARVARIABLE, "A");
+			tokens.push_back(newToken);
+		}
+		else if (inputWords[i] == "B") {
+			Token newToken(CHARVARIABLE, "B");
+			tokens.push_back(newToken);
+		}
+		else if (inputWords[i] == "C") {
+			Token newToken(CHARVARIABLE, "C");
+			tokens.push_back(newToken);
+		}
+	
 		else{
 			bool isInt = true;
 			for (int j = 0; j < inputWords[i].length(); ++j) {

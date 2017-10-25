@@ -23,8 +23,11 @@ public:
 		return tornyScore < other.tornyScore;
 	}
 
+	friend ostream& operator<<(ostream& ostr, const Prisoner& prisoner);
+
 	friend class Game;
-private:
+
+protected:
 	Strategy strat;
 	char lastOutcome = 0 ; 
 	int alloutcomes_w = 0;
