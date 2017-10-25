@@ -49,7 +49,7 @@ int main() {
 	Prisoner p9(s9,9);
 	GangMember g9(s9, 9);
 
-	Strategy s10("H:\\visual studio 2017\\Projects\\Coursework\\strat10.txt");
+	Strategy s10("H:\\visual studio 2017\\Projects\\Coursework\\strat11.txt");
 	Prisoner p10(s10,10);
 	GangMember g10(s10, 10);
 

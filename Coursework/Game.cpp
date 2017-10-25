@@ -62,6 +62,17 @@ void Game::playGame(Prisoner& prisoner1, Prisoner& prisoner2)
 
 }
 
+
+bool checkTotalAgreement(vector<result> & results) {
+	result desicion = results.at(0);
+	for (int i = 1; i < (int)results.size(); ++i) {
+		if (results.at(i) != desicion) {
+			return false;
+		}
+	}
+	return true;
+}
+
 void Game::playGame(Gang & gang1, Gang & gang2)
 {
 	gang1.reset();
@@ -70,5 +81,20 @@ void Game::playGame(Gang & gang1, Gang & gang2)
 	for (int i = 0; i < iterations; ++i) {
 		vector<result> gang1Results = interpreter.interpretResult(gang1);
 		vector<result> gang2Results = interpreter.interpretResult(gang2);
+
+		gang1.updateIterations();
+		gang2.updateIterations();
+
+		bool gang1Agree = checkTotalAgreement(gang1Results);
+		bool gang2Agree = checkTotalAgreement(gang2Results);
+
+		if (gang1Agree && gang2Agree && (gang1Results.at(0) == SILENCE) && (gang2Results.at(0) == SILENCE)) {
+			gang1.updateScore(2);
+			gang2.updateScore(2);
+			
+			gang1.updateLastOutcome('W');
+			gang2.updateLastOutcome('W');
+		}
+
 	}
 }
