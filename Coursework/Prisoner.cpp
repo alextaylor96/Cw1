@@ -1,5 +1,5 @@
 #include "Prisoner.h"
-
+#include <iostream>
 
 
 Prisoner::Prisoner(Strategy& strategy, int id):strat(strategy) , idNumber(id)
@@ -24,9 +24,14 @@ Strategy& Prisoner::getStrategy()
 
 double Prisoner::getVariableValue(Token t) {
 	if (t.getType() == INTEGER) {
-		return stoi(t.getValue());
+		//exception handeling when calling stoi on none integer string, this is bad as could handel myself as seen in lexer but example of how could use for mark.
+		try {
+			return stoi(t.getValue());
+		}
+		catch (exception e) {
+			std::cout << "Exception caught at like 29 of prisoner.cpp, Cant convert to integer.";
+		}
 	}
-
 	string value = t.getValue();
 	if (value == "LASTOUTCOME") {
 		if (lastOutcome == 'W') {

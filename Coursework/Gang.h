@@ -1,6 +1,6 @@
 #pragma once
 #include "GangMember.h"
-//
+
 class Gang
 {
 public:
