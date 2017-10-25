@@ -74,23 +74,6 @@ bool solveComparison(vector<Token> left, vector<Token> right, Token operation, P
 	}
 }
 
-//bool isOp(Token& t) {
-//	if (t.getValue() == "=" || t.getValue() == "<" || t.getValue() == ">") {
-//		return true;
-//	}
-//	else {
-//		return false;
-//	}
-//}
-
-bool isGOTO(Token& t) {
-	if (t.getValue() == "GOTO") {
-		return true;
-	}
-	else {
-		return false;
-	}
-}
 
 //find the line that starts with the given line number
 int findLine(string lineNumber, vector<vector<Token>>& lines) {
@@ -141,7 +124,14 @@ result Interpreter::interpretResult(Prisoner& prisoner)
 
 			std::vector<Token>::iterator gotoIT = std::find_if(prisoner.getStrategy().getTokens().at(lineNumber).begin(),
 				prisoner.getStrategy().getTokens().at(lineNumber).end(),
-				isGOTO);
+				[](Token& t) {
+				if (t.getValue() == "GOTO") {
+					return true;
+				}
+				else {
+					return false;
+				}
+			});
 
 			vector<Token> left(prisoner.getStrategy().getTokens().at(lineNumber).begin()+2, opIt);
 			vector<Token> right(opIt + 1,gotoIT);
