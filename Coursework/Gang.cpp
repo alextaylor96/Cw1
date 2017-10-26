@@ -88,7 +88,7 @@ void Gang::reset() {
 	}
 }
 
-double Gang::getTotalScore()
+double Gang::getTotalScore() const
 {
 	double score = 0;
 	for (int i = 0; i < (int)members.size(); ++i) {

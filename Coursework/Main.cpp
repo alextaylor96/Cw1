@@ -139,6 +139,21 @@ int main() {
 		GangTournament gt(gangs);
 		gt.playTournament();
 		cout << gt;
+
+
+		cout << "Would you like to see the full leader board? (Y / N) \n";
+		char choice;
+		cin >> choice;
+		if (choice == 'Y' || choice == 'y') {
+			gt.printLeaderBoard();
+		}
+		else if (choice == 'N' || choice == 'n') {
+			cout << "Not displaying full leaderboard. \n";
+		}
+
+
+		cout << "Press any key to exit.\n";
+		cin >> selected;
 	}
 	
 	

@@ -36,7 +36,7 @@ Gang GangTournament::playTournament()
 
 void GangTournament::printLeaderBoard()
 {
-	/*vector<Gang> temp;
+	vector<Gang> temp;
 
 	for (int i = 0; i <(int)contestants.size(); ++i) {
 		temp.push_back(contestants.at(i));
@@ -45,16 +45,16 @@ void GangTournament::printLeaderBoard()
 	sort(temp.begin(), temp.end());
 
 	for (int i = 0; i < (int)temp.size(); ++i) {
-		std::cout << "In position " << i + 1 << " is gang number " << temp.at(i).getId() << " with a score of " << temp.at(i).getTotalScore() << "\n";
-	}*/
+		std::cout << "In position " << i + 1 << " is gang number " << temp.at(i).getId() << " with a total score of " << temp.at(i).getTotalScore() << "\n";
+	}
 }
 
 
 ostream & operator<<(ostream & ostr, const GangTournament& torn)
 {
-	ostr << "The winner of the tournament was the gang number: " << torn.winner->getId() << " with a score of " << torn.winner->getTotalScore() << ".\n";
+	ostr << "The winner of the tournament was the gang number: " << torn.winner->getId() << " with a total score of " << torn.winner->getTotalScore() << ".\n";
 	ostr << "It contained members: \n";
-	for (int i = 0; i < torn.winner->getMembers().size(); ++i) {
+	for (int i = 0; i < (int)torn.winner->getMembers().size(); ++i) {
 		ostr << torn.winner->getMembers().at(i) << endl;
 	}
 	return ostr;
