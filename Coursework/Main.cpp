@@ -98,16 +98,23 @@ int main() {
 	
 	
 	Gang gang1(gang1Members,1,true);
-	Gang gang2(gang2Members,2,false);
+	Gang gang2(gang2Members,2, true);
 	Gang gang3(gang3Members, 3,true);
-	Gang gang4(gang4Members, 4,false);
+	Gang gang4(gang4Members, 4, true);
+	Gang gang5(gang1Members, 5, false);
+	Gang gang6(gang2Members, 6, false);
+	Gang gang7(gang3Members, 7, false);
+	Gang gang8(gang4Members, 8, false);
 
 	vector<Gang> gangs;
 	gangs.push_back(gang1);
 	gangs.push_back(gang2);
 	gangs.push_back(gang3);
 	gangs.push_back(gang4);
-
+	gangs.push_back(gang5);
+	gangs.push_back(gang6);
+	gangs.push_back(gang7);
+	gangs.push_back(gang8);
 
 
 	std::cout << "The Prisoners Dilemma.\n";
