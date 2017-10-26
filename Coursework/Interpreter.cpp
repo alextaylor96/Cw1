@@ -4,6 +4,8 @@
 #include <time.h>
 #include <iostream>
 #include <algorithm>
+#include <thread>
+#include <mutex>
 
 Interpreter::Interpreter()
 {
@@ -164,11 +166,25 @@ result Interpreter::interpretResult(Prisoner& prisoner)
 
 }
 
+
+mutex mtx;
+
+void pushTo(vector<result>* results, Prisoner* member) {
+	Interpreter inter;
+	mtx.lock();
+	results->push_back(inter.interpretResult(*member));
+	mtx.unlock();
+}
+
 vector<result> Interpreter::interpretResult(Gang & gang)
 {
 	vector<result> results;
+	vector<thread> threads;
 	for (int i = 0; i < (int)gang.getMembers().size(); ++i) {
-		results.push_back(interpretResult(gang.getMembers().at(i)));
+		threads.push_back(std::thread(&pushTo, &results, &gang.getMembers().at(i)));
+	}
+	for (int i = 0; i < threads.size();++i) {
+		threads.at(i).join();
 	}
 	return results;
 }

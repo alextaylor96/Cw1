@@ -11,7 +11,7 @@ Gang::~Gang()
 {
 }
 
-vector<GangMember>& Gang::getMembers()
+vector<GangMember>& Gang::getMembers() 
 {
 	return members;
 }

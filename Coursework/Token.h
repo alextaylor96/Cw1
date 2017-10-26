@@ -12,6 +12,7 @@ enum Type {KEYWORD,OPERATOR,INTEGER,VARIABLE, CHARVARIABLE ,LINENUMBER};
 class Token
 {
 public:
+	
 	Token(Type type,string Value);
 	~Token();
 
