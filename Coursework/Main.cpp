@@ -9,6 +9,8 @@
 #include <iostream>
 using namespace std;
 
+//question 2 the morelikely there is for there to be a spy the better it is for the leader to switch, if spys are alot rarer then its better ot not switch
+
 int main() {
 	
 	Game game;
@@ -153,6 +155,30 @@ int main() {
 			cin >> spyPercent;
 			gt.playTournamentWithSpy(spyPercent);
 			cout << gt;
+
+			cout << "Would you like to run a small tornament with 2 gangs at varring spy % (Y / N) \n";
+			cin >> choice;
+			if (choice == 'Y' || choice == 'y') {
+				vector<Gang> gangs2;
+				gangs2.push_back(gang2);
+				gangs2.push_back(gang6);
+				GangTournament gt(gangs2);
+				gt.playTournamentWithSpy(0);
+				cout << gt;
+				gt.playTournamentWithSpy(5);
+				cout << gt;
+				gt.playTournamentWithSpy(10);
+				cout << gt;
+				gt.playTournamentWithSpy(15);
+				cout << gt;
+				gt.playTournamentWithSpy(20);
+				cout << gt;
+				
+			}
+			else if (choice == 'N' || choice == 'n') {
+				cout << "Not playing small torny. \n";
+			}
+
 		}
 		else if (choice == 'N' || choice == 'n') {
 			cout << "Playing tornament with no spy. \n";

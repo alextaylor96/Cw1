@@ -23,7 +23,7 @@ Gang GangTournament::playTournament()
 		}
 	}
 	int bestIndex;
-	double bestScore = 10000;
+	double bestScore = 100000000000;
 	for (int i = 0; i < (int)contestants.size(); ++i) {
 		if (contestants.at(i).getTotalScore() < bestScore) {
 			bestIndex = i;
