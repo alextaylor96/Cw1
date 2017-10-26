@@ -119,6 +119,12 @@ int main() {
 	gangs.push_back(gang8);
 
 
+	vector<Gang> gangs2;
+	gangs2.push_back(gang1);
+	gangs2.push_back(gang2);
+	gangs2.push_back(gang3);
+	gangs2.push_back(gang4);
+
 	std::cout << "The Prisoners Dilemma.\n";
 	cout << "Select which coursework to veiw(1 or 2): \n";
 	int selected;
@@ -145,16 +151,25 @@ int main() {
 	}
 	if (selected == 2) {
 		cout << "coursework 2 selected. \n";
-		GangTournament gt(gangs);
+		
 		cout << "Would you like a spy to be present? (Y/N) \n";
 		char choice;
 		cin >> choice;
 		if (choice == 'Y' || choice == 'y') {
+			GangTournament gt(gangs);
 			cout << "Please enter % of the time for spy to be present in the team: \n";
 			int spyPercent;
 			cin >> spyPercent;
 			gt.playTournamentWithSpy(spyPercent);
 			cout << gt;
+			cout << "Would you like to see the full leader board? (Y / N) \n";
+			cin >> choice;
+			if (choice == 'Y' || choice == 'y') {
+				gt.printLeaderBoard();
+			}
+			else if (choice == 'N' || choice == 'n') {
+				cout << "Not displaying full leaderboard. \n";
+			}
 
 			cout << "Would you like to run a small tornament with 2 gangs at varring spy % (Y / N) \n";
 			cin >> choice;
@@ -181,19 +196,22 @@ int main() {
 
 		}
 		else if (choice == 'N' || choice == 'n') {
+			GangTournament gt(gangs2);
 			cout << "Playing tornament with no spy. \n";
 			gt.playTournament();
 			cout << gt;
+
+			cout << "Would you like to see the full leader board? (Y / N) \n";
+			cin >> choice;
+			if (choice == 'Y' || choice == 'y') {
+				gt.printLeaderBoard();
+			}
+			else if (choice == 'N' || choice == 'n') {
+				cout << "Not displaying full leaderboard. \n";
+			}
 		}
 
-		cout << "Would you like to see the full leader board? (Y / N) \n";
-		cin >> choice;
-		if (choice == 'Y' || choice == 'y') {
-			gt.printLeaderBoard();
-		}
-		else if (choice == 'N' || choice == 'n') {
-			cout << "Not displaying full leaderboard. \n";
-		}
+		
 
 
 		cout << "Press any key to exit.\n";

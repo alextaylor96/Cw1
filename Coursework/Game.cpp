@@ -124,9 +124,11 @@ void spyEffect(vector<result>& result) {
 	}
 }
 
+
 //redo if time
-void Game::playSpyGame(Gang & gang1, Gang & gang2, int spyFrequency)
+void Game::playSpyGame(Gang & gang1, Gang &gang2, int spyFrequency)
 {
+
 	gang1.reset();
 	gang2.reset();
 
@@ -268,7 +270,7 @@ void Game::playSpyGame(Gang & gang1, Gang & gang2, int spyFrequency)
 		}
 
 	}
-
+	
 }
 
 void Game::playGame(Gang & gang1, Gang & gang2)

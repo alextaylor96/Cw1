@@ -18,7 +18,7 @@ Gang GangTournament::playTournament()
 	Game game;
 
 	for (int i = 0; i < (int)contestants.size(); ++i) {
-		for (int j = i + 1; j <(int)contestants.size(); ++j) {
+		for (int j = i + 1; j < (int)contestants.size(); ++j) {
 			game.playGame(contestants.at(i), contestants.at(j));
 		}
 	}
@@ -39,9 +39,9 @@ Gang GangTournament::playTournamentWithSpy(int spyFrequency)
 	Game game;
 
 	for (int i = 0; i < (int)contestants.size(); ++i) {
-		for (int j = i + 1; j <(int)contestants.size(); ++j) {
-			game.playSpyGame(contestants.at(i), contestants.at(j),spyFrequency);
-		}
+		for (int j = i + 1; j < (int)contestants.size(); ++j) {
+			game.playSpyGame(contestants.at(i), contestants.at(j), spyFrequency);
+		}	
 	}
 	int bestIndex;
 	double bestScore = 10000000000000;
