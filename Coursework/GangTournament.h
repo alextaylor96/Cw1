@@ -8,6 +8,7 @@ public:
 	~GangTournament();
 
 	Gang playTournament();
+	Gang playTournamentWithSpy(int spyFrequency);
 
 	void printLeaderBoard();
 

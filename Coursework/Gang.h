@@ -4,7 +4,7 @@
 class Gang
 {
 public:
-	Gang(vector<GangMember>& members, int id);
+	Gang(vector<GangMember>& members, int id, bool switching);
 	~Gang();
 
 	vector<GangMember>& getMembers();
@@ -25,9 +25,11 @@ public:
 	//returns id of gang
 	int getId();
 
+	bool getSwitching();
+
 private:
 	vector<GangMember> members;
 	int gangId;
-
+	bool switching;
 };
 

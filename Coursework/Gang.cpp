@@ -2,7 +2,7 @@
 
 
 
-Gang::Gang(vector<GangMember>& members, int id): members(members), gangId(id)
+Gang::Gang(vector<GangMember>& members, int id, bool switching): members(members), gangId(id), switching(switching)
 {
 }
 
@@ -62,8 +62,11 @@ void Gang::updateLastOutcome(char loc)
 			++members.at(i).alloutcomes_c;
 		}
 	}
-
-
+	else {
+		for (int i = 0; i < (int)members.size(); ++i) {
+			members.at(i).lastOutcome = loc;
+		}
+	}
 
 
 }
@@ -100,4 +103,9 @@ double Gang::getTotalScore() const
 int Gang::getId()
 {
 	return gangId;
+}
+
+bool Gang::getSwitching()
+{
+	return switching;
 }

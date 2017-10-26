@@ -97,10 +97,10 @@ int main() {
 	gang4Members.push_back(g10);
 	
 	
-	Gang gang1(gang1Members,1);
-	Gang gang2(gang2Members,2);
-	Gang gang3(gang3Members, 3);
-	Gang gang4(gang4Members, 4);
+	Gang gang1(gang1Members,1,true);
+	Gang gang2(gang2Members,2,false);
+	Gang gang3(gang3Members, 3,true);
+	Gang gang4(gang4Members, 4,false);
 
 	vector<Gang> gangs;
 	gangs.push_back(gang1);
@@ -137,12 +137,23 @@ int main() {
 	if (selected == 2) {
 		cout << "coursework 2 selected. \n";
 		GangTournament gt(gangs);
-		gt.playTournament();
-		cout << gt;
-
+		cout << "Would you like a spy to be present? (Y/N) \n";
+		char choice;
+		cin >> choice;
+		if (choice == 'Y' || choice == 'y') {
+			cout << "Please enter % of the time for spy to be present in the team: \n";
+			int spyPercent;
+			cin >> spyPercent;
+			gt.playTournamentWithSpy(spyPercent);
+			cout << gt;
+		}
+		else if (choice == 'N' || choice == 'n') {
+			cout << "Playing tornament with no spy. \n";
+			gt.playTournament();
+			cout << gt;
+		}
 
 		cout << "Would you like to see the full leader board? (Y / N) \n";
-		char choice;
 		cin >> choice;
 		if (choice == 'Y' || choice == 'y') {
 			gt.printLeaderBoard();
